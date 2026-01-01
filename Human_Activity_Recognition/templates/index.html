@@ -28,6 +28,7 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         header {
@@ -37,22 +38,27 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
             text-align: center;
+            overflow-wrap: break-word;
         }
 
         h1 {
             color: #667eea;
             font-size: 2.5em;
             margin-bottom: 10px;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .subtitle {
             color: #666;
             font-size: 1.1em;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .main-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
@@ -62,6 +68,7 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow-wrap: break-word;
         }
 
         .card h2 {
@@ -70,6 +77,8 @@
             font-size: 1.5em;
             border-bottom: 2px solid #667eea;
             padding-bottom: 10px;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .btn {
@@ -121,18 +130,23 @@
             padding: 15px;
             border-radius: 8px;
             border-left: 4px solid #667eea;
+            overflow: hidden;
         }
 
         .info-label {
             color: #666;
             font-size: 0.9em;
             margin-bottom: 5px;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .info-value {
             color: #333;
             font-size: 1.3em;
             font-weight: 600;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .status {
@@ -140,6 +154,8 @@
             border-radius: 8px;
             margin: 10px 0;
             font-weight: 500;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .status-success {
@@ -198,6 +214,9 @@
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            max-width: 200px;
         }
 
         .metrics-table th {
@@ -217,6 +236,38 @@
         #metricsContent {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            position: relative;
+        }
+
+        /* Scroll hint shadow */
+        #metricsContent::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.05));
+            pointer-events: none;
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        #metricsContent::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        #metricsContent::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        #metricsContent::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        #metricsContent::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
         }
 
         .metric-value {
@@ -233,6 +284,8 @@
             margin-bottom: 8px;
             color: #333;
             font-weight: 500;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         select, input {
@@ -247,6 +300,8 @@
             -moz-appearance: none;
             appearance: none;
             background-color: white;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         select {
@@ -255,6 +310,7 @@
             background-position: right 12px center;
             background-size: 20px;
             padding-right: 40px;
+            text-overflow: ellipsis;
         }
 
         select:focus, input:focus {
@@ -270,16 +326,22 @@
             border-radius: 10px;
             margin: 15px 0;
             text-align: center;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .prediction-result h3 {
             font-size: 1.8em;
             margin-bottom: 10px;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .confidence {
             font-size: 1.2em;
             opacity: 0.9;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .loading {
@@ -314,6 +376,9 @@
             text-align: center;
             border: 2px solid #667eea;
             font-weight: 500;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .best-model-badge {
@@ -325,6 +390,7 @@
             font-size: 0.9em;
             font-weight: 600;
             margin-left: 10px;
+            white-space: nowrap;
         }
 
         .feature-input-grid {

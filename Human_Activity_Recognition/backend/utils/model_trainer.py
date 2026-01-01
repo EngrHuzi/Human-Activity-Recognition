@@ -51,7 +51,6 @@ class HARModelTrainer:
         y_train_flat = y_train.values.ravel() if hasattr(y_train, 'values') else y_train
 
         log_reg = LogisticRegression(
-            solver='liblinear',
             max_iter=max_iter,
             random_state=random_state
         )
